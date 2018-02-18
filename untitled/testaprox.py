@@ -4,7 +4,7 @@ import threading
 import time
 
 
-input_file = 'proxylist.txt'
+input_file = 'filtered.txt'
 threads = 10
 
 queue = Queue()

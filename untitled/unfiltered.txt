@@ -1,0 +1,317 @@
+82.194.165.68	1080	
+  Russian Federation Vladivostok
+1760 ms
+
+SOCKS4	High	1 minutes
+142.44.194.14	8080	
+  Canada Montréal
+680 ms
+
+HTTP, HTTPS	Medium	2 minutes
+212.237.23.60	2000	
+  Italy Arezzo
+420 ms
+
+HTTP, HTTPS	No	2 minutes
+52.178.77.80	3128	
+  Netherlands Amsterdam
+380 ms
+
+HTTPS	High	2 minutes
+52.178.79.128	3128	
+  Netherlands Amsterdam
+340 ms
+
+HTTPS	High	2 minutes
+151.80.159.18	80	
+  France Roubaix
+340 ms
+
+HTTP, HTTPS	No	2 minutes
+151.80.159.18	8080	
+  Italy
+620 ms
+
+HTTP, HTTPS	No	2 minutes
+89.236.17.108	3128	
+  Sweden Stockholm
+280 ms
+
+HTTP, HTTPS	High	2 minutes
+62.210.105.103	3128	
+  France
+280 ms
+
+HTTP, HTTPS	No	2 minutes
+137.74.172.242	3128	
+  France
+400 ms
+
+HTTPS	High	2 minutes
+188.165.4.213	8080	
+  Ireland
+340 ms
+
+HTTP, HTTPS	No	2 minutes
+185.82.212.95	8080	
+  Czech Republic
+440 ms
+
+HTTP, HTTPS	High	2 minutes
+31.3.242.140	3128	
+  United Kingdom
+400 ms
+
+HTTPS	High	2 minutes
+185.109.163.123	1080	
+  Netherlands
+340 ms
+
+HTTP, HTTPS	High	2 minutes
+79.137.22.198	1080	
+  France
+380 ms
+
+HTTP, HTTPS	High	2 minutes
+54.36.200.100	1080	
+  France
+400 ms
+
+HTTP, HTTPS	High	2 minutes
+89.179.247.7	1080	
+  Russian Federation Moscow
+160 ms
+
+HTTP, HTTPS	High	2 minutes
+143.0.189.155	80	
+  Brazil
+1420 ms
+
+HTTP	High	4 minutes
+202.159.36.70	80	
+  Indonesia Jakarta
+4940 ms
+
+HTTP	High	4 minutes
+173.212.202.65	80	
+  Germany
+320 ms
+
+HTTP	High	4 minutes
+119.81.71.27	80	
+  Singapore Singapore
+960 ms
+
+HTTP, HTTPS	High	4 minutes
+35.189.86.114	3128	
+  United States Mountain View
+340 ms
+
+HTTP	High	4 minutes
+190.2.131.205	1080	
+  Curacao Willemstad
+1100 ms
+
+HTTP	High	4 minutes
+154.119.50.246	53281	
+  South Africa Stellenbosch
+860 ms
+
+HTTP	High	4 minutes
+190.2.132.71	1080	
+  Curacao Willemstad
+500 ms
+
+HTTP	High	4 minutes
+185.93.3.123	8080	
+  Spain Madrid
+1420 ms
+
+HTTP, HTTPS	High	4 minutes
+173.249.9.82	3128	
+  Germany
+1520 ms
+
+HTTP, HTTPS	High	4 minutes
+173.192.21.89	80	
+  United States Dallas
+1220 ms
+
+HTTP, HTTPS	High	4 minutes
+165.227.104.78	3128	
+  United States New York
+1540 ms
+
+HTTP, HTTPS	High	4 minutes
+109.121.163.75	53282	
+  Macedonia Novo Selo
+4860 ms
+
+HTTP	High	4 minutes
+94.130.157.6	1080	
+  Germany
+720 ms
+
+HTTP, HTTPS	High	4 minutes
+179.108.56.122	3128	
+  Brazil Petrolina
+1060 ms
+
+HTTP	High	4 minutes
+50.234.205.218	80	
+  United States
+4960 ms
+
+HTTP	High	4 minutes
+190.2.132.6	1080	
+  Curacao Willemstad
+1320 ms
+
+HTTP	High	4 minutes
+190.2.131.208	1080	
+  Curacao Willemstad
+1200 ms
+
+HTTP	High	4 minutes
+190.2.131.206	1080	
+  Curacao Willemstad
+1360 ms
+
+HTTP	High	4 minutes
+190.2.131.204	1080	
+  Curacao Willemstad
+1600 ms
+
+HTTP	High	4 minutes
+190.2.131.202	1080	
+  Curacao Willemstad
+1300 ms
+
+HTTP	High	4 minutes
+190.2.131.201	1080	
+  Curacao Willemstad
+1420 ms
+
+HTTP	High	4 minutes
+190.2.131.200	1080	
+  Curacao Willemstad
+1200 ms
+
+HTTP	High	4 minutes
+192.116.142.153	8080	
+  Israel Ramat Hakovésh
+740 ms
+
+HTTP, HTTPS	High	4 minutes
+62.133.191.116	8080	
+  Russian Federation Belebey
+1200 ms
+
+HTTP	High	4 minutes
+173.192.21.89	8080	
+  United States Dallas
+740 ms
+
+HTTP, HTTPS	High	4 minutes
+89.38.146.15	80	
+  United Kingdom Slough
+980 ms
+
+HTTP	High	4 minutes
+190.2.132.70	1080	
+  Curacao Willemstad
+320 ms
+
+HTTP	High	4 minutes
+190.2.132.69	1080	
+  Curacao Willemstad
+720 ms
+
+HTTP	High	4 minutes
+190.2.132.67	1080	
+  Curacao Willemstad
+320 ms
+
+HTTP	High	4 minutes
+190.2.132.65	1080	
+  Curacao Willemstad
+320 ms
+
+HTTP	High	4 minutes
+68.188.59.198	80	
+  United States Saint Louis
+700 ms
+
+HTTP	High	4 minutes
+47.88.215.58	1080	
+  Singapore
+920 ms
+
+HTTP, HTTPS	High	4 minutes
+223.19.212.30	8380	
+  Hong Kong Central District
+4840 ms
+
+HTTP	High	4 minutes
+50.234.205.208	80	
+  United States
+1940 ms
+
+HTTP	High	4 minutes
+50.203.239.16	80	
+  United States
+720 ms
+
+HTTP	High	4 minutes
+50.234.205.219	80	
+  United States
+960 ms
+
+HTTP	High	4 minutes
+50.234.205.222	80	
+  United States
+920 ms
+
+HTTP	High	4 minutes
+50.234.205.215	80	
+  United States
+880 ms
+
+HTTP	High	4 minutes
+50.203.239.22	80	
+  United States
+1720 ms
+
+HTTP	High	4 minutes
+85.26.146.169	80	
+  Russian Federation Moscow
+140 ms
+
+HTTP	High	4 minutes
+47.75.0.253	8081	
+  United States San Mateo
+1540 ms
+
+HTTP	High	4 minutes
+50.234.205.214	80	
+  United States
+900 ms
+
+HTTP	High	4 minutes
+50.234.205.212	80	
+  United States
+900 ms
+
+HTTP	High	4 minutes
+50.234.205.213	80	
+  United States
+920 ms
+
+HTTP	High	4 minutes
+50.234.205.211	80	
+  United States
+900 ms
+
+HTTP	High	4 minutes
+118.193.26.18	8080	
+  Hong Kong
