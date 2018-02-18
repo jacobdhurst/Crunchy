@@ -1,4 +1,10 @@
 from selenium import webdriver
 
 driver = webdriver.Firefox(executable_path=r'C:\Users\Jacob\Documents\geckodriver.exe')
-driver.get("http://www.google.com")
+driver.get("http://google.com")
+
+search = driver.find_element_by_xpath("//*[@id=\"lst-ib\"]")
+search.send_keys("yerba mate\n")
+
+result = driver.find_element_by_xpath("/html/body/div[6]/div[3]/div[10]/div[1]/div[2]/div/div[2]/div[2]/div/div/div/div[1]/div/div/div/h3/a")
+result.click()
