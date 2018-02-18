@@ -1,13 +1,13 @@
-import Queue
+from queue import Queue
+import urllib3
 import threading
-import urllib2
 import time
 
 
 input_file = 'proxylist.txt'
 threads = 10
 
-queue = Queue.Queue()
+queue = Queue()
 output = []
 
 class ThreadUrl(threading.Thread):
@@ -22,17 +22,17 @@ class ThreadUrl(threading.Thread):
             proxy_info = self.queue.get()
 
             try:
-                proxy_handler = urllib2.ProxyHandler({'http':proxy_info})
-                opener = urllib2.build_opener(proxy_handler)
+                proxy_handler = urllib3.ProxyHandler({'http':proxy_info})
+                opener = urllib3.build_opener(proxy_handler)
                 opener.addheaders = [('User-agent','Mozilla/5.0')]
-                urllib2.install_opener(opener)
-                req = urllib2.Request("http://www.google.com")
-                sock=urllib2.urlopen(req, timeout= 7)
+                urllib3.install_opener(opener)
+                req = urllib3.Request("http://www.google.com")
+                sock=urllib3.urlopen(req, timeout= 7)
                 rs = sock.read(1000)
                 if '<title>Google</title>' in rs:
                     output.append(('working',proxy_info))
                 else:
-                    raise "Not Google"
+                    raise ("Not Google")
             except:
                 output.append(('not working',proxy_info))
             #signals to queue job is done
@@ -56,6 +56,6 @@ def main():
 
 main()
 for proxy,host in output:
-    print proxy,host
+    print (proxy,host)
 
-print "Elapsed Time: %s" % (time.time() - start)
+print ("Elapsed Time: %s" % (time.time() - start))
