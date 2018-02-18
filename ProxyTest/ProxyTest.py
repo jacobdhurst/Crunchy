@@ -39,22 +39,22 @@ class ThreadUrl(threading.Thread):
 
 start = time.clock()
 def main():
-
-    #spawn a pool of threads, and pass them queue instance
+    # spawn a pool of threads, and pass them queue instance
     for i in range(5):
         t = ThreadUrl(queue)
         t.setDaemon(True)
         t.start()
     hosts = [host.strip() for host in open(input_file).readlines()]
-    #populate queue with data
+    # populate queue with data
     for host in hosts:
         queue.put(host)
 
-    #wait on the queue until everything has been processed
+    # wait on the queue until everything has been processed
     queue.join()
 
-main()
-for proxy,host in output:
-    print (proxy,host)
 
-print ("Elapsed Time: %lf seconds" % (time.clock() - start))
+main()
+for proxy, host in output:
+    print(proxy, host)
+
+print("Elapsed Time: %lf seconds" % (time.clock() - start))
