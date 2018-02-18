@@ -1,0 +1,4 @@
+from selenium import webdriver
+
+driver = webdriver.Firefox(executable_path=r'C:\Users\Jacob\Documents\geckodriver.exe')
+driver.get("http://www.google.com")
