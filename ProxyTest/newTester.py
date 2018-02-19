@@ -6,27 +6,18 @@ import time
 class ChromeTest():
 
     def test(self):
-        proxy = "122.183.137.190:8080"
+        input_file = open("filtered.txt", "r")
 
-        driverLocation = "/Users/danielguzman/Documents/workspace/chromedriver"
-        os.environ["webdriver.chrome.driver"] = driverLocation
-        options = webdriver.ChromeOptions()
-        options.add_argument('--proxy-server=%s' % proxy)
-        options.add_experimental_option("detach", True)
+        for proxy in input_file:
+            driverLocation = "C:/Users/Jacob/Documents/chromedriver.exe" #/Users/danielguzman/Documents/workspace/chromedriver"
+            os.environ["webdriver.chrome.driver"] = driverLocation
+            options = webdriver.ChromeOptions()
+            options.add_argument('--proxy-server=%s' % proxy)
+            options.add_experimental_option("detach", True)
 
+            driver = webdriver.Chrome(driverLocation, chrome_options=options)
 
-
-        driver = webdriver.Chrome(driverLocation, chrome_options=options)
-
-
-        driver.get("http://www.ip-adress.eu/")
-
-
-
-
-
-
-
+            driver.get("http://www.ip-adress.eu/")
 
 c = ChromeTest()
 c.test()
