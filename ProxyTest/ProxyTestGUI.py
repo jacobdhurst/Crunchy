@@ -82,3 +82,86 @@
 #
 # submit.pack(side =BOTTOM)
 # root.mainloop()
+#!/usr/bin/python
+# -*- coding: iso-8859-1 -*-
+# import wx
+#
+# class ProxyTestGUI(wx.Frame):
+#     def __init__(self, parent, id, title):
+#         wx.Frame.__init__(self, parent, id, title)
+#         self.parent = parent
+#         self.initialize()
+#
+#     def initialize(self):
+#         sizer = wx.GridBagSizer()
+#
+#         self.label = wx.StaticText(self, -1, label=u'Label')
+#         sizer.Add(self.label, (0, 0), (1, 1), wx.EXPAND)
+#
+#         self.entry = wx.TextCtrl(self, -1, value=u"IP LIST")
+#         sizer.Add(self.entry, (1, 0), (1, 2), wx.EXPAND)
+#         self.Bind(wx.EVT_TEXT_ENTER, self.OnPressEnter, self.entry)
+#
+#         button = wx.Button(self, -1, label="Submit")
+#         sizer.Add(button, (1, 3))
+#         self.Bind(wx.EVT_BUTTON, self.OnButtonClick, button)
+#
+#         sizer.AddGrowableCol(0)
+#         self.SetSizerAndFit(sizer)
+#         self.SetSizeHints(-1, self.GetSize().y, -1, self.GetSize().y)
+#         self.entry.SetFocus()
+#         self.entry.SetSelection(-1, -1)
+#         self.Show(True)
+#
+#     def OnButtonClick(self, event):
+#         self.label.SetLabel("List Submitted")
+#         self.entry.SetFocus()
+#         self.entry.SetSelection(-1, -1)
+#
+#     def OnPressEnter(self, event):
+#         self.label.SetLabel("List Submitted")
+#         self.entry.SetFocus()
+#         self.entry.SetSelection(-1, -1)
+#
+# if __name__ == "__main__":
+#     app = wx.App()
+#     frame = ProxyTestGUI(None, -1, 'Proxy Tester')
+#     app.MainLoop()
+from random import random
+from kivy.app import App
+from kivy.uix.widget import Widget
+from kivy.uix.button import Button
+from kivy.graphics import Color, Ellipse, Line
+
+
+class MyPaintWidget(Widget):
+
+    def on_touch_down(self, touch):
+        color = (random(), 1, 1)
+        with self.canvas:
+            Color(*color, mode='hsv')
+            d = 30.
+            Ellipse(pos=(touch.x - d / 2, touch.y - d / 2), size=(d, d))
+            touch.ud['line'] = Line(points=(touch.x, touch.y))
+
+    def on_touch_move(self, touch):
+        touch.ud['line'].points += [touch.x, touch.y]
+
+
+class MyPaintApp(App):
+
+    def build(self):
+        parent = Widget()
+        self.painter = MyPaintWidget()
+        clearbtn = Button(text='Clear')
+        clearbtn.bind(on_release=self.clear_canvas)
+        parent.add_widget(self.painter)
+        parent.add_widget(clearbtn)
+        return parent
+
+    def clear_canvas(self, obj):
+        self.painter.canvas.clear()
+
+
+if __name__ == '__main__':
+    MyPaintApp().run()
