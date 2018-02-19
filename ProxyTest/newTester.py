@@ -18,7 +18,7 @@ class ChromeTest():
             options.set_headless(True)
 
             driver = webdriver.Chrome(driverLocation, chrome_options=options)
-            driver.get("http://www.ip-adress.eu/")
+            driver.get("http://google.com")
             if not(driver.page_source.__contains__("ERR")): print(i, ":", driver.current_url, " Success:", proxy)
 
             i = i + 1
