@@ -25,19 +25,19 @@ class ThreadUrl(threading.Thread):
                 opener = urllib3.build_opener(proxy_handler)
                 opener.addheaders = [('User-agent','Mozilla/5.0')]
                 urllib3.install_opener(opener)
-                req = urllib3.request("http://www.google.com")
+                req = urllib3.request("https://www.google.com")
                 sock=urllib3.urlopen(req, timeout=120)
                 rs = sock.read(1000)
                 if '<title>Google</title>' in rs:
-                    output.append(('working',proxy_info))
+                    output.append(('Working:',proxy_info))
                 else:
-                    raise ("Not Google")
+                    raise ("Error: Not Google.")
             except:
-                output.append(('not working',proxy_info))
+                output.append(('Not Working:',proxy_info))
             #signals to queue job is done
             self.queue.task_done()
 
-start = time.time()
+start = time.clock()
 def main():
 
     #spawn a pool of threads, and pass them queue instance
@@ -57,4 +57,4 @@ main()
 for proxy,host in output:
     print (proxy,host)
 
-print ("Elapsed Time: %s" % (time.time() - start))
+print ("Elapsed Time: %lf seconds" % (time.clock() - start))
