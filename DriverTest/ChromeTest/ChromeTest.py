@@ -13,7 +13,6 @@ class ChromeTest():
 
         driver = webdriver.Chrome(driverLocation, chrome_options=options)
 
-
         driver.get("http://google.com")
 
         log = driver.find_element_by_xpath('//*[@id="gb_70"]')
@@ -23,11 +22,6 @@ class ChromeTest():
         next = driver.find_element_by_xpath('//*[@id="identifierNext"]')
         next.click()
         pw = driver.find_element_by_xpath('//*[@id="password"]/div[1]/div/div[1]/input')
-
-
-
-
-
 
 c = ChromeTest()
 c.test()
