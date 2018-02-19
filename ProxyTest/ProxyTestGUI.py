@@ -127,41 +127,51 @@
 #     app = wx.App()
 #     frame = ProxyTestGUI(None, -1, 'Proxy Tester')
 #     app.MainLoop()
-from random import random
-from kivy.app import App
-from kivy.uix.widget import Widget
-from kivy.uix.button import Button
-from kivy.graphics import Color, Ellipse, Line
-
-
-class MyPaintWidget(Widget):
-
-    def on_touch_down(self, touch):
-        color = (random(), 1, 1)
-        with self.canvas:
-            Color(*color, mode='hsv')
-            d = 30.
-            Ellipse(pos=(touch.x - d / 2, touch.y - d / 2), size=(d, d))
-            touch.ud['line'] = Line(points=(touch.x, touch.y))
-
-    def on_touch_move(self, touch):
-        touch.ud['line'].points += [touch.x, touch.y]
-
-
-class MyPaintApp(App):
-
-    def build(self):
-        parent = Widget()
-        self.painter = MyPaintWidget()
-        clearbtn = Button(text='Clear')
-        clearbtn.bind(on_release=self.clear_canvas)
-        parent.add_widget(self.painter)
-        parent.add_widget(clearbtn)
-        return parent
-
-    def clear_canvas(self, obj):
-        self.painter.canvas.clear()
-
-
-if __name__ == '__main__':
-    MyPaintApp().run()
+#
+# import sys
+#
+# from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QAction, QLineEdit, QMessageBox
+# from PyQt5.QtGui import QIcon
+# from PyQt5.QtCore import pyqtSlot
+#
+#
+# class App(QMainWindow):
+#
+#     def __init__(self):
+#         super().__init__()
+#         self.title = 'PyQt5 textbox - pythonspot.com'
+#         self.left = 10
+#         self.top = 10
+#         self.width = 400
+#         self.height = 140
+#         self.initUI()
+#
+#     def initUI(self):
+#         self.setWindowTitle(self.title)
+#         self.setGeometry(self.left, self.top, self.width, self.height)
+#
+#         # Create textbox
+#         self.textbox = QLineEdit(self)
+#         self.textbox.move(20, 20)
+#         self.textbox.resize(280, 40)
+#
+#         # Create a button in the window
+#         self.button = QPushButton('Show text', self)
+#         self.button.move(20, 80)
+#
+#         # connect button to function on_click
+#         self.button.clicked.connect(self.on_click)
+#         self.show()
+#
+#     @pyqtSlot()
+#     def on_click(self):
+#         textboxValue = self.textbox.text()
+#         QMessageBox.question(self, 'Message - pythonspot.com', "You typed: " + textboxValue, QMessageBox.Ok,
+#                              QMessageBox.Ok)
+#         self.textbox.setText("")
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     ex = App()
+#     sys.exit(app.exec_())
