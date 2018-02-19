@@ -1,9 +1,0 @@
-inputFile = open("unfiltered.txt", "r")
-outputFile = open("filtered.txt", "w")
-
-new = ""
-for line in inputFile:
-    for char in line:
-        if char == ":" or char == "." or char.isdigit(): new += char
-    new += "\n"
-outputFile.write(new)

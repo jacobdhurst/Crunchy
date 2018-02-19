@@ -20,14 +20,13 @@ class ThreadUrl(threading.Thread):
         while True:
             #grabs host from queue
             proxy_info = self.queue.get()
-
             try:
                 proxy_handler = urllib3.ProxyHandler({'http':proxy_info})
                 opener = urllib3.build_opener(proxy_handler)
                 opener.addheaders = [('User-agent','Mozilla/5.0')]
                 urllib3.install_opener(opener)
-                req = urllib3.Request("http://www.google.com")
-                sock=urllib3.urlopen(req, timeout= 7)
+                req = urllib3.request("http://www.google.com")
+                sock=urllib3.urlopen(req, timeout=120)
                 rs = sock.read(1000)
                 if '<title>Google</title>' in rs:
                     output.append(('working',proxy_info))
