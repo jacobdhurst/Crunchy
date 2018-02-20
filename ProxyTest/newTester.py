@@ -7,7 +7,6 @@ import time
 import os
 
 input_file = 'filtered.txt'
-threads = 10
 
 queue = Queue()
 output = []
@@ -67,6 +66,7 @@ start = time.clock()
 def main():
     # c = ChromeTest()
     # c.test()
+
     # spawn a pool of threads, and pass them queue instance
     for i in range(50): # 50 threads
         t = threadTest(queue)
@@ -83,6 +83,6 @@ def main():
 
 
 main()
+print("Elapsed Time: %lf seconds" % (time.clock() - start))
 # for proxyToTest, host in output:
 #     print(proxyToTest, host)
-print("Elapsed Time: %lf seconds" % (time.clock() - start))

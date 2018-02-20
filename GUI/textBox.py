@@ -16,10 +16,6 @@ class Notepad(QWidget):
         layout.addWidget(self.text)
         layout.addWidget(self.clr_btn)
 
-
-
-
-
         self.clr_btn.clicked.connect(self.save_text)
 
         self.setLayout(layout)
