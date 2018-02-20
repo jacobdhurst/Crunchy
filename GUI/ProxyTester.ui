@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface>
+  <object class="ttk.Frame" id="root">
+    <property name="height">500</property>
+    <property name="width">500</property>
+    <layout>
+      <property name="column">0</property>
+      <property name="propagate">True</property>
+      <property name="row">0</property>
+    </layout>
+    <child>
+      <object class="ttk.Entry" id="textfield">
+        <property name="text" translatable="yes">Please provide list of proxies to check.</property>
+        <property name="width">100</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="sticky">nw</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Text" id="output">
+        <property name="height">10</property>
+        <property name="text" translatable="yes">Proxy status displayed here.</property>
+        <property name="width">75</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+          <property name="sticky">ne</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+</interface>
