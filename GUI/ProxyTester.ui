@@ -1,36 +1,86 @@
 <?xml version='1.0' encoding='utf-8'?>
 <interface>
-  <object class="ttk.Frame" id="root">
-    <property name="height">500</property>
-    <property name="width">500</property>
+  <object class="ttk.Labelframe" id="root">
+    <property name="cursor">mouse</property>
+    <property name="height">200</property>
+    <property name="text" translatable="yes">Proxy Tester</property>
+    <property name="width">200</property>
     <layout>
       <property name="column">0</property>
       <property name="propagate">True</property>
       <property name="row">0</property>
     </layout>
     <child>
-      <object class="ttk.Entry" id="textfield">
-        <property name="text" translatable="yes">Please provide list of proxies to check.</property>
-        <property name="width">100</property>
+      <object class="ttk.Frame" id="inFrame">
+        <property name="height">200</property>
+        <property name="width">200</property>
         <layout>
           <property name="column">0</property>
           <property name="propagate">True</property>
           <property name="row">0</property>
           <property name="sticky">nw</property>
         </layout>
+        <child>
+          <object class="ttk.Button" id="submit">
+            <property name="cursor">spider</property>
+            <property name="text" translatable="yes">Submit</property>
+            <property name="width">47</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Text" id="input">
+            <property name="background">#303030</property>
+            <property name="cursor">heart</property>
+            <property name="exportselection">true</property>
+            <property name="font">{calibri} 12 {}</property>
+            <property name="foreground">#fdbdaa</property>
+            <property name="height">26</property>
+            <property name="highlightbackground">#fdbdaa</property>
+            <property name="insertborderwidth">0</property>
+            <property name="text" translatable="yes">Provide proxy list to test here.</property>
+            <property name="width">36</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
       </object>
     </child>
     <child>
-      <object class="tk.Text" id="output">
-        <property name="height">10</property>
-        <property name="text" translatable="yes">Proxy status displayed here.</property>
-        <property name="width">75</property>
+      <object class="ttk.Frame" id="outFrame">
+        <property name="height">200</property>
+        <property name="width">200</property>
         <layout>
-          <property name="column">0</property>
+          <property name="column">2</property>
           <property name="propagate">True</property>
-          <property name="row">2</property>
+          <property name="row">0</property>
           <property name="sticky">ne</property>
         </layout>
+        <child>
+          <object class="tk.Text" id="output">
+            <property name="background">#303030</property>
+            <property name="cursor">coffee_mug</property>
+            <property name="font">{calibri} 12 {}</property>
+            <property name="foreground">#fdbdaa</property>
+            <property name="height">26</property>
+            <property name="highlightbackground">#fdbdaa</property>
+            <property name="state">disabled</property>
+            <property name="text" translatable="yes">Proxy status:</property>
+            <property name="width">36</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
       </object>
     </child>
   </object>
