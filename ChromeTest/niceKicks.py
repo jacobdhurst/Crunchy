@@ -13,7 +13,7 @@ class ChromeTest():
 
     def test(self):
 
-        driverLocation = "/Users/danielguzman/Documents/workspace/chromedriver"
+        driverLocation = "/Users/Jacob/Documents/chromedriver.exe" #"/Users/danielguzman/Documents/workspace/chromedriver"
         os.environ["webdriver.chrome.driver"] = driverLocation
         options = webdriver.ChromeOptions()
         options.add_experimental_option('detach', True)
@@ -56,7 +56,9 @@ class ChromeTest():
 
         time.sleep(10)
 
-        driver.switch_to.frame(wait.until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"card-fields-number-gowwdwi5n4a00000\"]"))))
+        driver.switch_to.active_element.send_keys('1111')
+        # driver.switch_to.frame(wait.until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"card-fields-number-gowwdwi5n4a00000\"]"))))
+
 
 
 
