@@ -21,15 +21,12 @@ class threadTest(threading.Thread):
                 os.environ["webdriver.chrome.driver"] = driverLocation
 
                 options = webdriver.ChromeOptions()
-                options.set_headless(True)
                 options.add_argument('--proxy-server=%s' % proxyToTest)
                 options.add_experimental_option("detach", True)
+                options.set_headless(True)
 
                 driver = webdriver.Chrome(driverLocation, chrome_options=options)
                 driver.get("http://google.com")
-                print(driver.title)
-                print(driver.window_handles)
-                print(proxyToTest)
                 if (driver.title == "Google"):
                     # print ("Success:", proxyToTest)
                     self.output.append(("Success:", proxyToTest))
