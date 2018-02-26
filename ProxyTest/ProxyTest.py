@@ -43,6 +43,7 @@ class threadTest(threading.Thread):
 
 
 def main():
+    #init
     output = []
     input_file = 'FilteredProxyList.txt'
     queue = Queue()
