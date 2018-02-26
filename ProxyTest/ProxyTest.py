@@ -1,4 +1,3 @@
-from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 from queue import Queue
 import threading
@@ -17,7 +16,7 @@ class threadTest(threading.Thread):
             #grabs host from queue
             proxyToTest = self.queue.get()
             try:
-                driverLocation = "C:/Users/Jacob/Documents/chromedriver.exe" #"/usr/local/share/chromedriver" #"C:/Users/Jacob/Documents/chromedriver.exe"  # /Users/danielguzman/Documents/workspace/chromedriver"
+                driverLocation = "C:/Users/Jacob/Documents/chromedriver.exe" #"/usr/local/share/chromedriver" # /Users/danielguzman/Documents/workspace/chromedriver"
                 os.environ["webdriver.chrome.driver"] = driverLocation
 
                 options = webdriver.ChromeOptions()
@@ -32,6 +31,7 @@ class threadTest(threading.Thread):
                     self.output.append(("Success:", proxyToTest))
                 else:
                     raise ("Error.")
+                driver.close()
             except:
                 # print ("Failure:", proxyToTest)
                 self.output.append(("Failure:", proxyToTest))
