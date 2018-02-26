@@ -16,10 +16,10 @@ class threadTest(threading.Thread):
             # grabs host from queue
             proxyToTest = self.queue.get()
             try:
-                # "/usr/local/share/chromedriver"
-                # "C:/Users/Jacob/Documents/chromedriver.exe"
-                # "/Users/danielguzman/Documents/workspace/chromedriver"
+                # driverLocation = "/usr/local/share/chromedriver"
                 driverLocation = "C:/Users/Jacob/Documents/chromedriver.exe"
+                # driverLocation = "/Users/danielguzman/Documents/workspace/chromedriver"
+
                 os.environ["webdriver.chrome.driver"] = driverLocation
 
                 options = webdriver.ChromeOptions()
