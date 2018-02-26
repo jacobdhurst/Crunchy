@@ -1,9 +1,12 @@
 from selenium import webdriver
 from queue import Queue
 import threading
+import signal
 import time
 import os
 
+# def handler():
+#     raise Exception("timeout")
 class threadTest(threading.Thread):
     def __init__(self, queue, output):
         threading.Thread.__init__(self)
@@ -16,6 +19,8 @@ class threadTest(threading.Thread):
             # grabs host from queue
             proxyToTest = self.queue.get()
             try:
+                # signal.signal(signal.SIGALRM, handler)
+                # signal.alarm(10)
                 # driverLocation = "/usr/local/share/chromedriver"
                 driverLocation = "C:/Users/Jacob/Documents/chromedriver.exe"
                 # driverLocation = "/Users/danielguzman/Documents/workspace/chromedriver"
