@@ -5,18 +5,21 @@ import time
 import os
 
 class threadTest(threading.Thread):
-    """Threaded Url Grab"""
     def __init__(self, queue, output):
         threading.Thread.__init__(self)
         self.queue = queue
         self.output = output
 
+    # noinspection PyBroadException
     def run(self):
         while True:
-            #grabs host from queue
+            # grabs host from queue
             proxyToTest = self.queue.get()
             try:
-                driverLocation = "C:/Users/Jacob/Documents/chromedriver.exe" #"/usr/local/share/chromedriver" # /Users/danielguzman/Documents/workspace/chromedriver"
+                # "/usr/local/share/chromedriver"
+                # "C:/Users/Jacob/Documents/chromedriver.exe"
+                # "/Users/danielguzman/Documents/workspace/chromedriver"
+                driverLocation = "C:/Users/Jacob/Documents/chromedriver.exe"
                 os.environ["webdriver.chrome.driver"] = driverLocation
 
                 options = webdriver.ChromeOptions()
@@ -26,17 +29,18 @@ class threadTest(threading.Thread):
 
                 driver = webdriver.Chrome(driverLocation, chrome_options=options)
                 driver.get("http://google.com")
-                if (driver.title == "Google"):
+                if driver.title == "Google":
                     # print ("Success:", proxyToTest)
                     self.output.append(("Success:", proxyToTest))
                 else:
-                    raise ("Error.")
+                    raise Exception("Uh...")
                 driver.close()
             except:
                 # print ("Failure:", proxyToTest)
                 self.output.append(("Failure:", proxyToTest))
-            #signals to queue job is done
+            # signals to queue job is done
             self.queue.task_done()
+
 
 def main():
     output = []
@@ -45,7 +49,7 @@ def main():
 
     start = time.clock()
     # spawn a pool of threads, and pass them queue instance
-    for i in range(50): # 50 threads
+    for i in range(50):  # 50 threads
         t = threadTest(queue, output)
         t.setDaemon(True)
         t.start()
@@ -59,5 +63,5 @@ def main():
     queue.join()
 
     for proxyToTest, host in output:
-      print(proxyToTest, host)
+        print(proxyToTest, host)
     print("Elapsed Time: %lf seconds" % (time.clock() - start))

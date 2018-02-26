@@ -1,7 +1,6 @@
 # entry_widget.py
-from tkinter import *
 import time
-import Filter
+from tkinter import *
 import ProxyTest
 
 root = Tk()
@@ -12,6 +11,7 @@ entry.pack()
 
 # Insert some default text
 entry.insert(INSERT, '')
+
 
 # Print the contents of entry widget to console
 def print_content():
