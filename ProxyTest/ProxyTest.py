@@ -64,5 +64,3 @@ def main():
     for proxyToTest, host in output:
       print(proxyToTest, host)
     print("Elapsed Time: %lf seconds" % (time.clock() - start))
-
-main()
