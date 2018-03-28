@@ -9,7 +9,7 @@ r = s.get('https://www.iplocation.net/find-ip-address')
 data = r.text
 
 regex = r"1.2.3.45"  # Proxy IP
-regex2 = r"6.7.8.99"  # My IP
+regex2 = r"172.20.20.20"#"6.7.8.99"  # My IP
 
 matches = re.findall(regex, data)
 matches2 = re.findall(regex2, data)
