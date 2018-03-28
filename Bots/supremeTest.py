@@ -1,74 +1,73 @@
+import os
 import time
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.select import Select
-import os
-from selenium.webdriver.common.action_chains import ActionChains
 
 
-class ChromeTest():
-    def test(self):
-        driverLocation = "/Users/danielguzman/Documents/workspace/chromedriver"
+class Crunchy():
+
+    def cop(self):
+        # User Data
+        user = (
+            "Ned Flanders",           # Name
+            "Ned@BussDown.edu",       # Email
+            "1234567890",             # Phone
+            "742 Evergreen Terrace",  # Billing
+            "742 Evergreen Terrace",  # Shipping
+            "12345",                  # Zip
+            "Buss Down",              # City
+            "35",                     # State Index
+            "1234567887654321",       # CC
+            "123",                    # CCV
+            "0",                      # CC Month Index
+            "0"                       # CC Year Index
+        )
+
+        # Initializing webdriver
+        driverLocation = "C:/Users/Jacob/Documents/chromedriver.exe"#"/Users/danielguzman/Documents/workspace/chromedriver"
         os.environ["webdriver.chrome.driver"] = driverLocation
         options = webdriver.ChromeOptions()
         options.add_experimental_option('detach', True)
-        # options.add_argument("user-data-dir=/Users/danielguzman/Library/Application Support/Google/Chrome")
-        options.set_headless(True)
-
+        options.set_headless(False)
         driver = webdriver.Chrome(driverLocation, chrome_options= options)
-        wait = WebDriverWait(driver, 1000)
+        wait = WebDriverWait(driver, 100)
 
-
-        driver.get("http://www.supremenewyork.com/shop/all/accessories")
-
-        product = '//*[@id="container"]/article[8]/div/a/img'
-        print('Looking for product')
-
-
-        cproduct = wait.until(EC.element_to_be_clickable((By.XPATH, product)))
-        cproduct.click()
+        # Start timer
         start = time.time()
-        print('Product found')
 
+        # Find and cart item(s)
+        driver.get("http://www.supremenewyork.com/shop/all/accessories")
+        productID = '//*[@id="container"]/article[8]/div/a/img'
+        product = wait.until(EC.element_to_be_clickable((By.XPATH, productID)))
+        product.click()
         size = wait.until(EC.element_to_be_clickable((By.ID, "s")))
-        sel = Select(size)
-        sel.select_by_visible_text("Medium")
-        print('Size found')
-
+        select = Select(size)
+        select.select_by_visible_text("Medium")
         add = wait.until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"add-remove-buttons\"]/input")))
         add.click()
-        print('Adding to cart....')
+        cart = wait.until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"cart\"]/a[2]")))
+        cart.click()
 
-        add2 = wait.until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"cart\"]/a[2]")))
-        add2.click()
-        print('Added to cart....')
+        # Inject billing via JavaScript
+        driver.execute_script("document.getElementById(\"order_billing_name\").value=\""+user[0]+"\"")
+        driver.execute_script("document.getElementById(\"order_email\").value=\""+user[1]+"\"")
+        driver.execute_script("document.getElementById(\"order_tel\").value=\""+user[2]+"\"")
+        driver.execute_script("document.getElementById(\"bo\").value=\""+user[3]+"\"")
+        driver.execute_script("document.getElementById(\"bo\").value=\""+user[4]+"\"")
+        driver.execute_script("document.getElementById(\"order_billing_zip\").value=\""+user[5]+"\"")
+        driver.execute_script("document.getElementById(\"order_billing_city\").value=\""+user[6]+"\"")
+        driver.execute_script("document.getElementById('order_billing_state').getElementsByTagName('option')["+user[7]+"].selected = 'selected'")
+        driver.execute_script("document.getElementById(\"nnaerb\").value=\""+user[8]+"\"")
+        driver.execute_script("document.getElementById(\"orcer\").value=\""+user[9]+"\"")
+        driver.execute_script("document.getElementById('credit_card_month').getElementsByTagName('option')["+user[10]+"].selected = 'selected'")
+        driver.execute_script("document.getElementById('credit_card_year').getElementsByTagName('option')["+user[11]+"].selected = 'selected'")
 
-        pfName = wait.until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"order_billing_name\"]")))
-        print('Billing Info')
-        # pfName.click()
-        driver.execute_script("document.getElementById(\"order_billing_name\").value=\"ned flanders\"")
-        driver.execute_script("document.getElementById(\"order_email\").value=\"ned@ned.com\"")
-        driver.execute_script("document.getElementById(\"order_tel\").value=\"55555555555\"")
-        driver.execute_script("document.getElementById(\"bo\").value=\"321 MAin St\"")
-        driver.execute_script("document.getElementById(\"bo\").value=\"321 MAin St\"")
-        driver.execute_script("document.getElementById(\"order_billing_zip\").value=\"87110\"")
-        driver.execute_script("document.getElementById(\"order_billing_city\").value=\"Albuquerque\"")
-        driver.execute_script("document.getElementById('order_billing_state').getElementsByTagName('option')[35].selected = 'selected'")
-        driver.execute_script("document.getElementById(\"nnaerb\").value=\"4122329904837289\"")
-        driver.execute_script("document.getElementById(\"orcer\").value=\"324\"")
-        driver.execute_script("document.getElementById('credit_card_month').getElementsByTagName('option')[6].selected = 'selected'")
-        driver.execute_script("document.getElementById('credit_card_year').getElementsByTagName('option')[4].selected = 'selected'")
-
-        end = time.time()
-        print('Done')
-        print("Checkout time" +str(time.time()-start) + " seconds")
+        print("Elapsed: " + str(time.time() - start) + "s")
 
 
-
-c = ChromeTest()
-c.test()
+bot = Crunchy()
+bot.cop()
 
