@@ -35,14 +35,14 @@ class Crunchy():
         driver = webdriver.Chrome(driverLocation, chrome_options= options)
         wait = WebDriverWait(driver, 100)
 
-        # Start timer
-        start = time.time()
-
-        # Find and cart item(s)
+        # Find item(s)
         driver.get("http://www.supremenewyork.com/shop/all/accessories")
         productID = '//*[@id="container"]/article[8]/div/a/img'
         product = wait.until(EC.element_to_be_clickable((By.XPATH, productID)))
         product.click()
+
+        # Cart item(s)
+        start = time.time()
         size = wait.until(EC.element_to_be_clickable((By.ID, "s")))
         select = Select(size)
         select.select_by_visible_text("Medium")
